@@ -1,0 +1,24 @@
+<p>Select a state to see its Lottery Information</p>
+<div >
+    <select #StateSelect (change)="callCensusLottery(StateSelect.value)">
+        <option selected disabled>State</option>
+
+        <option *ngFor="let state of states | keyvalue" value="{{state.key}}">{{state.value}}</option>
+    </select>
+    <select #TypeSelect (change)="lotteryType = TypeSelect.value">
+        <option *ngFor="let type of types" value="{{type}}">{{type}}</option>
+    </select>
+
+    <table style="margin: 20px; padding:15px" >
+        <div *ngFor="let row of lotteries" >
+            <!-- <th  *ngFor="let col of row"> -->
+            <!-- <th> -->
+                <div *ngIf="row[5] == lotteryType">
+                    <tr><th>{{row[3]}}</th><th>{{row[7]}}</th></tr>
+                
+                </div>
+                
+            <!-- </th> -->
+            </div>
+    </table>
+</div>
